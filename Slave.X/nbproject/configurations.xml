@@ -10,11 +10,10 @@
         <itemPath>mcc_generated_files/interrupt_manager.h</itemPath>
         <itemPath>mcc_generated_files/watchdog.h</itemPath>
         <itemPath>mcc_generated_files/pin_manager.h</itemPath>
-        <itemPath>mcc_generated_files/slave_typedef.h</itemPath>
-        <itemPath>mcc_generated_files/slave1.h</itemPath>
         <itemPath>mcc_generated_files/reset.h</itemPath>
         <itemPath>mcc_generated_files/clock.h</itemPath>
         <itemPath>mcc_generated_files/traps.h</itemPath>
+        <itemPath>mcc_generated_files/master.h</itemPath>
         <itemPath>mcc_generated_files/system_types.h</itemPath>
         <itemPath>mcc_generated_files/reset_types.h</itemPath>
         <itemPath>mcc_generated_files/mcc.h</itemPath>
@@ -31,9 +30,9 @@
       <logicalFolder name="MCC Generated Files"
                      displayName="MCC Generated Files"
                      projectFiles="true">
-        <itemPath>mcc_generated_files/slave1.c</itemPath>
         <itemPath>mcc_generated_files/reset.c</itemPath>
         <itemPath>mcc_generated_files/system.c</itemPath>
+        <itemPath>mcc_generated_files/master.c</itemPath>
         <itemPath>mcc_generated_files/clock.c</itemPath>
         <itemPath>mcc_generated_files/traps.c</itemPath>
         <itemPath>mcc_generated_files/interrupt_manager.c</itemPath>
@@ -54,7 +53,7 @@
     <conf name="default" type="2">
       <toolsSet>
         <developmentServer>localhost</developmentServer>
-        <targetDevice>dsPIC33CH512MP508</targetDevice>
+        <targetDevice>dsPIC33CH512MP508S1</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
         <platformTool>pkob4hybrid</platformTool>
@@ -78,29 +77,6 @@
           <alternateLoadableFile></alternateLoadableFile>
         </loading>
         <subordinates>
-          <sproject>
-            <makeArtifact PL="Slave.X"
-                          CT="1"
-                          CN="default"
-                          AC="true"
-                          BL="true"
-                          WD="Slave.X"
-                          BC="${MAKE}  -f Makefile CONF=default"
-                          DBC="${MAKE}  -f Makefile CONF=default TYPE_IMAGE=DEBUG_RUN"
-                          CC="rm -rf &quot;build/default&quot; &quot;dist/default&quot;"
-                          OP="dist/default/production/Slave.X.production.hex"
-                          DOP="dist/default/debug/Slave.X.debug.elf"
-                          FL="dist/default/production/Slave.X.production.hex"
-                          PD="dist/default/production/Slave.X.production.elf"
-                          DD="dist/default/debug/Slave.X.debug.elf">
-            </makeArtifact>
-            <simage>Slave</simage>
-            <saddress></saddress>
-          </sproject>
-          <score>
-            <scdebug>false</scdebug>
-            <scname>S1</scname>
-          </score>
         </subordinates>
       </compileType>
       <makeCustomizationType>
@@ -241,32 +217,26 @@
         <property key="CLC 2" value="true"/>
         <property key="CLC 3" value="true"/>
         <property key="CLC 4" value="true"/>
-        <property key="CRC" value="true"/>
         <property key="DACFRZ" value="true"/>
         <property key="DMA" value="true"/>
         <property key="FRZ" value="true"/>
         <property key="Freeze All Other Peripherals" value="true"/>
         <property key="I2C 1" value="true"/>
-        <property key="I2C 2" value="true"/>
         <property key="MCCP/SCCP 1" value="true"/>
         <property key="MCCP/SCCP 2" value="true"/>
         <property key="MCCP/SCCP 3" value="true"/>
         <property key="MCCP/SCCP 4" value="true"/>
-        <property key="MCCP/SCCP 5" value="true"/>
-        <property key="MCCP/SCCP 6" value="true"/>
-        <property key="MCCP/SCCP 7" value="true"/>
-        <property key="MCCP/SCCP 8" value="true"/>
         <property key="PG1" value="true"/>
         <property key="PG2" value="true"/>
         <property key="PG3" value="true"/>
         <property key="PG4" value="true"/>
-        <property key="PTGFRZ" value="true"/>
+        <property key="PG5" value="true"/>
+        <property key="PG6" value="true"/>
+        <property key="PG7" value="true"/>
+        <property key="PG8" value="true"/>
         <property key="QEI1" value="true"/>
         <property key="REFO" value="true"/>
-        <property key="SENT1" value="true"/>
-        <property key="SENT2" value="true"/>
         <property key="SPI 1" value="true"/>
-        <property key="SPI 2" value="true"/>
         <property key="TIMER1" value="true"/>
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
