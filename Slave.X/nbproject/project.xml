@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>Slave</name>
+            <name>dsPIC33CH_tutorial_Slave</name>
             <creation-uuid>68d94113-a5b3-47a1-a7d3-e88ff87cba86</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>
