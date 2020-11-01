@@ -76,8 +76,8 @@ void PIN_MANAGER_Initialize (void)
      ***************************************************************************/
     TRISA = 0x001F;
     TRISB = 0xFFFD;
-    TRISC = 0xF7FF;
-    TRISD = 0xFFFF;
+    TRISC = 0xFFF7;
+    TRISD = 0xFFF7;
     TRISE = 0xFFFC;
 
     /****************************************************************************
@@ -119,7 +119,11 @@ void PIN_MANAGER_Initialize (void)
     __builtin_write_RPCON(0x0000); // unlock PPS
 
     RPINR18bits.U1RXR = 0x003A;    //RC10->UART1:U1RX
-    RPOR13bits.RP59R = 0x0001;    //RC11->UART1:U1TX
+    RPOR17bits.RP67R = 0x0007;    //RD3->SPI1:SS1
+    RPOR9bits.RP51R = 0x0005;    //RC3->SPI1:SDO1
+    RPINR20bits.SCK1R = 0x002A;    //RB10->SPI1:SCK1
+    RPINR20bits.SDI1R = 0x0046;    //RD6->SPI1:SDI1
+    RPOR5bits.RP42R = 0x0006;    //RB10->SPI1:SCK1
 
     __builtin_write_RPCON(0x0800); // lock PPS
 
