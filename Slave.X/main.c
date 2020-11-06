@@ -47,6 +47,9 @@
 */
 #include "mcc_generated_files/mcc.h"
 
+//#define FCY 8000000
+//#include "libpic30.h"
+
 #define DATA_UNDER_TEST 0xAAAA
 
 /*
@@ -63,40 +66,30 @@ int main(void)
     dataReceive.ProtocolA[0] = 0;                 //Initializing to known value.
     dataSend.ProtocolB[0] = 0;                      //Initializing to known value.
  
-    //Wait for interrupt from master    
-    while(!MASTER_IsInterruptRequested());
-    MASTER_InterruptRequestAcknowledge();
-    while(MASTER_IsInterruptRequested());
-    MASTER_InterruptRequestAcknowledgeComplete();
- 
-    //Mailbox read    
-    MASTER_ProtocolARead((ProtocolA_DATA*)&dataReceive);
- 
-    //Copy the received data for retransmission
-    dataSend.ProtocolB[0] = dataReceive.ProtocolA[0];
- 
-    //Mailbox write 
-    MASTER_ProtocolBWrite((ProtocolB_DATA*)&dataSend);
- 
-    //Issue interrupt to master
-    MASTER_InterruptRequestGenerate();
-    while(!MASTER_IsInterruptRequestAcknowledged());
-    MASTER_InterruptRequestComplete();
-    while(MASTER_IsInterruptRequestAcknowledged());
- 
-    //Glow LED on data match
-    if(dataReceive.ProtocolA[0] == DATA_UNDER_TEST)
-    {
-        LED_SLAVE_SetHigh();
-    }
-    else
-    {
-        LED_SLAVE_SetLow();
-    }
- 
     while (1)
     {
         // Add your application code
+
+        //Wait for interrupt from master    
+        while (!MASTER_IsInterruptRequested());
+        MASTER_InterruptRequestAcknowledge();
+        while (MASTER_IsInterruptRequested());
+        MASTER_InterruptRequestAcknowledgeComplete();
+        LED_SLAVE_Toggle();
+        //Mailbox read    
+        MASTER_ProtocolARead((ProtocolA_DATA*) & dataReceive);
+
+        //Copy the received data for retransmission
+        dataSend.ProtocolB[0] = dataReceive.ProtocolA[0];
+
+        //Mailbox write 
+        MASTER_ProtocolBWrite((ProtocolB_DATA*) & dataSend);
+
+        //Issue interrupt to master
+        MASTER_InterruptRequestGenerate();
+        while (!MASTER_IsInterruptRequestAcknowledged());
+        MASTER_InterruptRequestComplete();
+        while (MASTER_IsInterruptRequestAcknowledged());
     }
     return 1; 
 }

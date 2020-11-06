@@ -64,44 +64,38 @@ int main(void)
     ProtocolA_DATA dataSend;
     ProtocolB_DATA dataReceive;
  
-    dataSend.ProtocolA[0] = DATA_UNDER_TEST;
     dataReceive.ProtocolB[0] = 0;         //Initializing to known value.
  
-    //Mailbox write
-    SLAVE1_ProtocolAWrite((ProtocolA_DATA*)&dataSend);
  
-    //Issue interrupt to slave
-    SLAVE1_InterruptRequestGenerate();
-    while(!SLAVE1_IsInterruptRequestAcknowledged());
-    SLAVE1_InterruptRequestComplete();
-    while(SLAVE1_IsInterruptRequestAcknowledged());
- 
-    //Wait for interrupt from slave
-    while(!SLAVE1_IsInterruptRequested());
-    SLAVE1_InterruptRequestAcknowledge();
-    while(SLAVE1_IsInterruptRequested());
-    SLAVE1_InterruptRequestAcknowledgeComplete();   
- 
-    //Mailbox read
-    SLAVE1_ProtocolBRead((ProtocolB_DATA*)&dataReceive);
- 
-    //Glow LED on data match
-    if(dataReceive.ProtocolB[0] == DATA_UNDER_TEST)
-    {
-        LED_MASTER_SetHigh();
-    }
-    else
-    {
-        LED_MASTER_SetLow();
-    }
  
     while (1)
     {
         // Add your application code
         if (UART1_IsRxReady()) 
         {
-            UART1_Write(UART1_Read());
+            dataSend.ProtocolA[0] = UART1_Read();
+            //Mailbox write
+            SLAVE1_ProtocolAWrite((ProtocolA_DATA*) & dataSend);
+
+            //Issue interrupt to slave
+            SLAVE1_InterruptRequestGenerate();
+            while (!SLAVE1_IsInterruptRequestAcknowledged());
+            SLAVE1_InterruptRequestComplete();
+            while (SLAVE1_IsInterruptRequestAcknowledged());
+        
+           //Wait for interrupt from slave
+            while (!SLAVE1_IsInterruptRequested());
+        
+            SLAVE1_InterruptRequestAcknowledge();
+            while (SLAVE1_IsInterruptRequested());
+            SLAVE1_InterruptRequestAcknowledgeComplete();
+            LED_MASTER_Toggle();
+
+            //Mailbox read
+            SLAVE1_ProtocolBRead((ProtocolB_DATA*) & dataReceive);
+            UART1_Write(dataReceive.ProtocolB[0]);
         }
+
     }
     return 1; 
 }
