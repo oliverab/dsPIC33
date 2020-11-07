@@ -61,10 +61,9 @@ int main(void)
     SLAVE1_Program();
     SLAVE1_Start();
  
-    ProtocolA_DATA dataSend;
-    ProtocolB_DATA dataReceive;
+    uint16_t    fifoSend;
+    uint16_t    fifoReceive;
  
-    dataReceive.ProtocolB[0] = 0;         //Initializing to known value.
  
  
  
@@ -73,27 +72,16 @@ int main(void)
         // Add your application code
         if (UART1_IsRxReady()) 
         {
-            dataSend.ProtocolA[0] = UART1_Read();
-            //Mailbox write
-            SLAVE1_ProtocolAWrite((ProtocolA_DATA*) & dataSend);
-
-            //Issue interrupt to slave
-            SLAVE1_InterruptRequestGenerate();
-            while (!SLAVE1_IsInterruptRequestAcknowledged());
-            SLAVE1_InterruptRequestComplete();
-            while (SLAVE1_IsInterruptRequestAcknowledged());
-        
-           //Wait for interrupt from slave
-            while (!SLAVE1_IsInterruptRequested());
-        
-            SLAVE1_InterruptRequestAcknowledge();
-            while (SLAVE1_IsInterruptRequested());
-            SLAVE1_InterruptRequestAcknowledgeComplete();
+            fifoSend = UART1_Read();
+            //FIFO write
+            SLAVE1_Write( & fifoSend,1); //not checking for success
+        }
+        if(  SLAVE1_Read(& fifoReceive,1))
+        {
             LED_MASTER_Toggle();
 
             //Mailbox read
-            SLAVE1_ProtocolBRead((ProtocolB_DATA*) & dataReceive);
-            UART1_Write(dataReceive.ProtocolB[0]);
+            UART1_Write(fifoReceive);
         }
 
     }

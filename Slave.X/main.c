@@ -60,36 +60,25 @@ int main(void)
     // initialize the device
     SYSTEM_Initialize();
 
-    ProtocolA_DATA dataReceive;
-    ProtocolB_DATA dataSend;
- 
-    dataReceive.ProtocolA[0] = 0;                 //Initializing to known value.
-    dataSend.ProtocolB[0] = 0;                      //Initializing to known value.
+    uint16_t    fifoSend;
+    uint16_t    fifoReceive;
  
     while (1)
     {
         // Add your application code
+        if(MASTER_Read( & fifoReceive,1))
+        {
 
-        //Wait for interrupt from master    
-        while (!MASTER_IsInterruptRequested());
-        MASTER_InterruptRequestAcknowledge();
-        while (MASTER_IsInterruptRequested());
-        MASTER_InterruptRequestAcknowledgeComplete();
-        LED_SLAVE_Toggle();
+            LED_SLAVE_Toggle();
         //Mailbox read    
-        MASTER_ProtocolARead((ProtocolA_DATA*) & dataReceive);
 
         //Copy the received data for retransmission
-        dataSend.ProtocolB[0] = dataReceive.ProtocolA[0];
+        fifoSend = fifoReceive;
 
         //Mailbox write 
-        MASTER_ProtocolBWrite((ProtocolB_DATA*) & dataSend);
+        MASTER_Write( & fifoSend,1); //ignore outcome
+        }
 
-        //Issue interrupt to master
-        MASTER_InterruptRequestGenerate();
-        while (!MASTER_IsInterruptRequestAcknowledged());
-        MASTER_InterruptRequestComplete();
-        while (MASTER_IsInterruptRequestAcknowledged());
     }
     return 1; 
 }
