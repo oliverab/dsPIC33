@@ -70,26 +70,17 @@ int main(void)
     {
         // Add your application code
 
-        //Wait for interrupt from master    
-        while (!MASTER_IsInterruptRequested());
-        MASTER_InterruptRequestAcknowledge();
-        while (MASTER_IsInterruptRequested());
-        MASTER_InterruptRequestAcknowledgeComplete();
-        LED_SLAVE_Toggle();
         //Mailbox read    
-        MASTER_ProtocolARead((ProtocolA_DATA*) & dataReceive);
+        if (MASTER_ProtocolARead((ProtocolA_DATA*) & dataReceive))
+        {
+            LED_SLAVE_Toggle();
 
-        //Copy the received data for retransmission
-        dataSend.ProtocolB[0] = dataReceive.ProtocolA[0];
+            //Copy the received data for retransmission
+            dataSend.ProtocolB[0] = dataReceive.ProtocolA[0];
 
-        //Mailbox write 
-        MASTER_ProtocolBWrite((ProtocolB_DATA*) & dataSend);
-
-        //Issue interrupt to master
-        MASTER_InterruptRequestGenerate();
-        while (!MASTER_IsInterruptRequestAcknowledged());
-        MASTER_InterruptRequestComplete();
-        while (MASTER_IsInterruptRequestAcknowledged());
+            //Mailbox write 
+            MASTER_ProtocolBWrite((ProtocolB_DATA*) & dataSend);
+        }
     }
     return 1; 
 }

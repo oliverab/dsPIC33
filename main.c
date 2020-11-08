@@ -71,28 +71,16 @@ int main(void)
     while (1)
     {
         // Add your application code
-        if (UART1_IsRxReady()) 
+        if (!UART1_IsRxReady()) 
         {
             dataSend.ProtocolA[0] = UART1_Read();
             //Mailbox write
             SLAVE1_ProtocolAWrite((ProtocolA_DATA*) & dataSend);
 
-            //Issue interrupt to slave
-            SLAVE1_InterruptRequestGenerate();
-            while (!SLAVE1_IsInterruptRequestAcknowledged());
-            SLAVE1_InterruptRequestComplete();
-            while (SLAVE1_IsInterruptRequestAcknowledged());
-        
-           //Wait for interrupt from slave
-            while (!SLAVE1_IsInterruptRequested());
-        
-            SLAVE1_InterruptRequestAcknowledge();
-            while (SLAVE1_IsInterruptRequested());
-            SLAVE1_InterruptRequestAcknowledgeComplete();
+        }
+        if (SLAVE1_ProtocolBRead((ProtocolB_DATA*) & dataReceive))
+        {
             LED_MASTER_Toggle();
-
-            //Mailbox read
-            SLAVE1_ProtocolBRead((ProtocolB_DATA*) & dataReceive);
             UART1_Write(dataReceive.ProtocolB[0]);
         }
 
