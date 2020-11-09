@@ -52,10 +52,10 @@
 #include "pin_manager.h"
 #include <stdint.h>
 #include <stdbool.h>
-#include "watchdog.h"
 #include "master.h"
-#include "reset.h"
+#include "watchdog.h"
 #include "spi1.h"
+#include "reset.h"
 #include "interrupt_manager.h"
 #include "traps.h"
 

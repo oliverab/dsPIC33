@@ -4543,7 +4543,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="INTERNAL OSCILLATOR" registerAlias="OSCCON"/>
-         <value>0</value>
+         <value>1792</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="MSI" name="bufferSize D"/>
@@ -6107,7 +6107,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="FrcEnable"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="SPI1" name="SPI1_SPIRXIISRFunction"/>
@@ -13591,7 +13591,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="INTERNAL OSCILLATOR" registerAlias="OSCCON" settingAlias="NOSC"/>
-         <value>FRC</value>
+         <value>FRCDIV</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="ANSELC" settingAlias="ANSELC7"/>
@@ -14139,7 +14139,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="FeaturePllEnable"/>
-         <value>AVAILABLE</value>
+         <value>NOTAVAILABLE</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="CNEN0C" settingAlias="CNIE0C2"/>
@@ -15333,7 +15333,7 @@
    <generatedFileHashHistoryMap class="java.util.HashMap">
       <entry>
          <file>mcc_generated_files\mcc.h</file>
-         <hash>f196a003669e5698392c234924fe90d941ed89df6c60feb7438bc24b97563949</hash>
+         <hash>c9e7f58e15006af767499c8143d63841a24b9ad5046f23771c5fbe7782a8cdb7</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\master.h</file>
@@ -15349,19 +15349,19 @@
       </entry>
       <entry>
          <file>mcc_generated_files\clock.c</file>
-         <hash>30003a9a9ab87d1ea913b7c52229dbd920009515925ca1059757e070cf193ddd</hash>
+         <hash>b3d0f1c60a6e13654652251010c9b5d8c1e8b900dcf018b664516f3803e05596</hash>
       </entry>
       <entry>
          <file>main.c</file>
          <hash>96f08d794b754f9b3d4435309fffd072b0eae1ceba66cfe6ff7b0325527dbc47</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\pin_manager.h</file>
-         <hash>cf84ffe341fa88f8d6ba96bc723e0706ce60bb100b56b03e2d8573c8a2b2fc79</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\spi1.h</file>
          <hash>7874fba71cdc902b4be95b47ae28ce12bea2bd7c1a2eca94bbc3242e63ea5958</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\pin_manager.h</file>
+         <hash>cf84ffe341fa88f8d6ba96bc723e0706ce60bb100b56b03e2d8573c8a2b2fc79</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\system_types.h</file>
@@ -15372,12 +15372,12 @@
          <hash>73a87dfc23b1a93220c059d661205432fe6aacafcaf73887bf2335a9903b8bfa</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\pin_manager.c</file>
-         <hash>ad2c1ce7eeaf01949713e1109a9d1b586cd1d5fcaba31a94bce3e472c32d66df</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\spi1.c</file>
          <hash>ea884347f676ee426f537cc1ba8644cf7fc51a4b57271c17f0a6693cac2883e2</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\pin_manager.c</file>
+         <hash>ad2c1ce7eeaf01949713e1109a9d1b586cd1d5fcaba31a94bce3e472c32d66df</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\system.c</file>
@@ -15408,12 +15408,12 @@
          <hash>f7931e65a34dc08b789c7561186b3577648d4976831fd76642340769b4f27ac0</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\watchdog.h</file>
-         <hash>4cedded98d63b3e2791b1807f92164a9248fcca68028b26c9446297b2dae2bf0</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\master.c</file>
          <hash>e514ca5355db88c883c3043ef68ce8c3ca3d36fec7753c03fe839880e636183b</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\watchdog.h</file>
+         <hash>4cedded98d63b3e2791b1807f92164a9248fcca68028b26c9446297b2dae2bf0</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\reset_types.h</file>
