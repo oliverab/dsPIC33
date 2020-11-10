@@ -98,7 +98,7 @@ int main(void)
     while (1)
     {
         // Add your application code
-        if (UART1_IsRxReady()) 
+        if (!UART1_IsRxReady()) 
         {
             UART1_Write(UART1_Read());
         }
