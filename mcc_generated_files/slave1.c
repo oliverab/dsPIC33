@@ -85,7 +85,7 @@
 
 // FS1DEVOPT
 #pragma config S1ALTI2C1 = OFF    //Alternate I2C1 Pin bit->I2C1 mapped to SDA1/SCL1 pins
-#pragma config S1SPI1PIN = PPS    //S1 SPI1 Pin Select bit->Slave SPI1 uses I/O remap (PPS) pins
+#pragma config S1SPI1PIN = DEDICATED    //S1 SPI1 Pin Select bit->Slave SPI1 uses dedicated I/O pins
 #pragma config S1SSRE = ON    //Slave Slave Reset Enable->Slave generated resets will reset the Slave Enable Bit in the MSI module
 #pragma config S1MSRE = ON    //Master Slave Reset Enable->The master software oriented RESET events (RESET Op-Code, Watchdog timeout, TRAP reset, illegalInstruction) will also cause the slave subsystem to reset.
 

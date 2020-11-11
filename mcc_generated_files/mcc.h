@@ -52,13 +52,13 @@
 #include "pin_manager.h"
 #include <stdint.h>
 #include <stdbool.h>
-#include "uart1.h"
-#include "watchdog.h"
 #include "reset.h"
 #include "interrupt_manager.h"
 #include "traps.h"
 #include "slave_typedef.h"
 #include "slave1.h"
+#include "watchdog.h"
+#include "uart1.h"
 
 #ifndef _XTAL_FREQ
 #define _XTAL_FREQ  8000000UL
