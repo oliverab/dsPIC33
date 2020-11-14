@@ -52,14 +52,15 @@
 #include "pin_manager.h"
 #include <stdint.h>
 #include <stdbool.h>
-#include "reset.h"
+#include "spi1.h"
+#include "watchdog.h"
 #include "master.h"
 #include "interrupt_manager.h"
 #include "traps.h"
-#include "watchdog.h"
+#include "reset.h"
 
 #ifndef _XTAL_FREQ
-#define _XTAL_FREQ  8000000UL
+#define _XTAL_FREQ  200000000UL
 #endif
 #define WDT_CLR_KEY 0x5743
 

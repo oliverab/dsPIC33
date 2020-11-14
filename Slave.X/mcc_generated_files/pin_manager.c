@@ -113,6 +113,14 @@ void PIN_MANAGER_Initialize (void)
     ANSELE = 0x0040;
 
 
+    /****************************************************************************
+     * Set the PPS
+     ***************************************************************************/
+    __builtin_write_RPCON(0x0000); // unlock PPS
+
+    RPINR20bits.SDI1R = 0x0039;    //RC9->SPI1:S1SDI1
+
+    __builtin_write_RPCON(0x0800); // lock PPS
 
 }
 
