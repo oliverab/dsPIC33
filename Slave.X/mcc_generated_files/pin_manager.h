@@ -202,6 +202,152 @@
 #define S1NCS_SetDigitalOutput() _TRISB7 = 0
 /**
   @Summary
+    Sets the GPIO pin, RC6, high using LATC6.
+
+  @Description
+    Sets the GPIO pin, RC6, high using LATC6.
+
+  @Preconditions
+    The RC6 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RC6 high (1)
+    S1NRST_SetHigh();
+    </code>
+
+*/
+#define S1NRST_SetHigh()          _LATC6 = 1
+/**
+  @Summary
+    Sets the GPIO pin, RC6, low using LATC6.
+
+  @Description
+    Sets the GPIO pin, RC6, low using LATC6.
+
+  @Preconditions
+    The RC6 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RC6 low (0)
+    S1NRST_SetLow();
+    </code>
+
+*/
+#define S1NRST_SetLow()           _LATC6 = 0
+/**
+  @Summary
+    Toggles the GPIO pin, RC6, using LATC6.
+
+  @Description
+    Toggles the GPIO pin, RC6, using LATC6.
+
+  @Preconditions
+    The RC6 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Toggle RC6
+    S1NRST_Toggle();
+    </code>
+
+*/
+#define S1NRST_Toggle()           _LATC6 ^= 1
+/**
+  @Summary
+    Reads the value of the GPIO pin, RC6.
+
+  @Description
+    Reads the value of the GPIO pin, RC6.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    uint16_t portValue;
+
+    // Read RC6
+    postValue = S1NRST_GetValue();
+    </code>
+
+*/
+#define S1NRST_GetValue()         _RC6
+/**
+  @Summary
+    Configures the GPIO pin, RC6, as an input.
+
+  @Description
+    Configures the GPIO pin, RC6, as an input.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RC6 as an input
+    S1NRST_SetDigitalInput();
+    </code>
+
+*/
+#define S1NRST_SetDigitalInput()  _TRISC6 = 1
+/**
+  @Summary
+    Configures the GPIO pin, RC6, as an output.
+
+  @Description
+    Configures the GPIO pin, RC6, as an output.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RC6 as an output
+    S1NRST_SetDigitalOutput();
+    </code>
+
+*/
+#define S1NRST_SetDigitalOutput() _TRISC6 = 0
+/**
+  @Summary
     Sets the GPIO pin, RC8, high using LATC8.
 
   @Description
@@ -219,11 +365,11 @@
   @Example
     <code>
     // Set RC8 high (1)
-    S1SCK1_SetHigh();
+    IO_RC8_SetHigh();
     </code>
 
 */
-#define S1SCK1_SetHigh()          _LATC8 = 1
+#define IO_RC8_SetHigh()          _LATC8 = 1
 /**
   @Summary
     Sets the GPIO pin, RC8, low using LATC8.
@@ -243,11 +389,11 @@
   @Example
     <code>
     // Set RC8 low (0)
-    S1SCK1_SetLow();
+    IO_RC8_SetLow();
     </code>
 
 */
-#define S1SCK1_SetLow()           _LATC8 = 0
+#define IO_RC8_SetLow()           _LATC8 = 0
 /**
   @Summary
     Toggles the GPIO pin, RC8, using LATC8.
@@ -267,11 +413,11 @@
   @Example
     <code>
     // Toggle RC8
-    S1SCK1_Toggle();
+    IO_RC8_Toggle();
     </code>
 
 */
-#define S1SCK1_Toggle()           _LATC8 ^= 1
+#define IO_RC8_Toggle()           _LATC8 ^= 1
 /**
   @Summary
     Reads the value of the GPIO pin, RC8.
@@ -293,11 +439,11 @@
     uint16_t portValue;
 
     // Read RC8
-    postValue = S1SCK1_GetValue();
+    postValue = IO_RC8_GetValue();
     </code>
 
 */
-#define S1SCK1_GetValue()         _RC8
+#define IO_RC8_GetValue()         _RC8
 /**
   @Summary
     Configures the GPIO pin, RC8, as an input.
@@ -317,11 +463,11 @@
   @Example
     <code>
     // Sets the RC8 as an input
-    S1SCK1_SetDigitalInput();
+    IO_RC8_SetDigitalInput();
     </code>
 
 */
-#define S1SCK1_SetDigitalInput()  _TRISC8 = 1
+#define IO_RC8_SetDigitalInput()  _TRISC8 = 1
 /**
   @Summary
     Configures the GPIO pin, RC8, as an output.
@@ -341,11 +487,11 @@
   @Example
     <code>
     // Sets the RC8 as an output
-    S1SCK1_SetDigitalOutput();
+    IO_RC8_SetDigitalOutput();
     </code>
 
 */
-#define S1SCK1_SetDigitalOutput() _TRISC8 = 0
+#define IO_RC8_SetDigitalOutput() _TRISC8 = 0
 /**
   @Summary
     Sets the GPIO pin, RC9, high using LATC9.

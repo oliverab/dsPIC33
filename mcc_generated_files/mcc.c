@@ -144,7 +144,7 @@
 #pragma config CPRC3 = MSTR    //Pin RC3 Ownership Bits->Master core owns pin.
 #pragma config CPRC4 = MSTR    //Pin RC4 Ownership Bits->Master core owns pin.
 #pragma config CPRC5 = MSTR    //Pin RC5 Ownership Bits->Master core owns pin.
-#pragma config CPRC6 = MSTR    //Pin RC6 Ownership Bits->Master core owns pin.
+#pragma config CPRC6 = SLV1    //Pin RC6 Ownership Bits->Slave 1 core owns pin.
 #pragma config CPRC7 = MSTR    //Pin RC7 Ownership Bits->Master core owns pin.
 #pragma config CPRC8 = SLV1    //Pin RC8 Ownership Bits->Slave 1 core owns pin.
 #pragma config CPRC9 = MSTR    //Pin RC9 Ownership Bits->Master core owns pin.
