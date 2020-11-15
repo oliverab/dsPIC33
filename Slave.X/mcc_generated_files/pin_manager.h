@@ -56,6 +56,298 @@
 */
 /**
   @Summary
+    Sets the GPIO pin, RB7, high using LATB7.
+
+  @Description
+    Sets the GPIO pin, RB7, high using LATB7.
+
+  @Preconditions
+    The RB7 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RB7 high (1)
+    S1NCS_SetHigh();
+    </code>
+
+*/
+#define S1NCS_SetHigh()          _LATB7 = 1
+/**
+  @Summary
+    Sets the GPIO pin, RB7, low using LATB7.
+
+  @Description
+    Sets the GPIO pin, RB7, low using LATB7.
+
+  @Preconditions
+    The RB7 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RB7 low (0)
+    S1NCS_SetLow();
+    </code>
+
+*/
+#define S1NCS_SetLow()           _LATB7 = 0
+/**
+  @Summary
+    Toggles the GPIO pin, RB7, using LATB7.
+
+  @Description
+    Toggles the GPIO pin, RB7, using LATB7.
+
+  @Preconditions
+    The RB7 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Toggle RB7
+    S1NCS_Toggle();
+    </code>
+
+*/
+#define S1NCS_Toggle()           _LATB7 ^= 1
+/**
+  @Summary
+    Reads the value of the GPIO pin, RB7.
+
+  @Description
+    Reads the value of the GPIO pin, RB7.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    uint16_t portValue;
+
+    // Read RB7
+    postValue = S1NCS_GetValue();
+    </code>
+
+*/
+#define S1NCS_GetValue()         _RB7
+/**
+  @Summary
+    Configures the GPIO pin, RB7, as an input.
+
+  @Description
+    Configures the GPIO pin, RB7, as an input.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RB7 as an input
+    S1NCS_SetDigitalInput();
+    </code>
+
+*/
+#define S1NCS_SetDigitalInput()  _TRISB7 = 1
+/**
+  @Summary
+    Configures the GPIO pin, RB7, as an output.
+
+  @Description
+    Configures the GPIO pin, RB7, as an output.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RB7 as an output
+    S1NCS_SetDigitalOutput();
+    </code>
+
+*/
+#define S1NCS_SetDigitalOutput() _TRISB7 = 0
+/**
+  @Summary
+    Sets the GPIO pin, RC8, high using LATC8.
+
+  @Description
+    Sets the GPIO pin, RC8, high using LATC8.
+
+  @Preconditions
+    The RC8 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RC8 high (1)
+    S1SCK1_SetHigh();
+    </code>
+
+*/
+#define S1SCK1_SetHigh()          _LATC8 = 1
+/**
+  @Summary
+    Sets the GPIO pin, RC8, low using LATC8.
+
+  @Description
+    Sets the GPIO pin, RC8, low using LATC8.
+
+  @Preconditions
+    The RC8 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RC8 low (0)
+    S1SCK1_SetLow();
+    </code>
+
+*/
+#define S1SCK1_SetLow()           _LATC8 = 0
+/**
+  @Summary
+    Toggles the GPIO pin, RC8, using LATC8.
+
+  @Description
+    Toggles the GPIO pin, RC8, using LATC8.
+
+  @Preconditions
+    The RC8 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Toggle RC8
+    S1SCK1_Toggle();
+    </code>
+
+*/
+#define S1SCK1_Toggle()           _LATC8 ^= 1
+/**
+  @Summary
+    Reads the value of the GPIO pin, RC8.
+
+  @Description
+    Reads the value of the GPIO pin, RC8.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    uint16_t portValue;
+
+    // Read RC8
+    postValue = S1SCK1_GetValue();
+    </code>
+
+*/
+#define S1SCK1_GetValue()         _RC8
+/**
+  @Summary
+    Configures the GPIO pin, RC8, as an input.
+
+  @Description
+    Configures the GPIO pin, RC8, as an input.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RC8 as an input
+    S1SCK1_SetDigitalInput();
+    </code>
+
+*/
+#define S1SCK1_SetDigitalInput()  _TRISC8 = 1
+/**
+  @Summary
+    Configures the GPIO pin, RC8, as an output.
+
+  @Description
+    Configures the GPIO pin, RC8, as an output.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RC8 as an output
+    S1SCK1_SetDigitalOutput();
+    </code>
+
+*/
+#define S1SCK1_SetDigitalOutput() _TRISC8 = 0
+/**
+  @Summary
     Sets the GPIO pin, RC9, high using LATC9.
 
   @Description
@@ -200,6 +492,152 @@
 
 */
 #define S1SDI1_SetDigitalOutput() _TRISC9 = 0
+/**
+  @Summary
+    Sets the GPIO pin, RD8, high using LATD8.
+
+  @Description
+    Sets the GPIO pin, RD8, high using LATD8.
+
+  @Preconditions
+    The RD8 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RD8 high (1)
+    IO_RD8_SetHigh();
+    </code>
+
+*/
+#define IO_RD8_SetHigh()          _LATD8 = 1
+/**
+  @Summary
+    Sets the GPIO pin, RD8, low using LATD8.
+
+  @Description
+    Sets the GPIO pin, RD8, low using LATD8.
+
+  @Preconditions
+    The RD8 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RD8 low (0)
+    IO_RD8_SetLow();
+    </code>
+
+*/
+#define IO_RD8_SetLow()           _LATD8 = 0
+/**
+  @Summary
+    Toggles the GPIO pin, RD8, using LATD8.
+
+  @Description
+    Toggles the GPIO pin, RD8, using LATD8.
+
+  @Preconditions
+    The RD8 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Toggle RD8
+    IO_RD8_Toggle();
+    </code>
+
+*/
+#define IO_RD8_Toggle()           _LATD8 ^= 1
+/**
+  @Summary
+    Reads the value of the GPIO pin, RD8.
+
+  @Description
+    Reads the value of the GPIO pin, RD8.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    uint16_t portValue;
+
+    // Read RD8
+    postValue = IO_RD8_GetValue();
+    </code>
+
+*/
+#define IO_RD8_GetValue()         _RD8
+/**
+  @Summary
+    Configures the GPIO pin, RD8, as an input.
+
+  @Description
+    Configures the GPIO pin, RD8, as an input.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RD8 as an input
+    IO_RD8_SetDigitalInput();
+    </code>
+
+*/
+#define IO_RD8_SetDigitalInput()  _TRISD8 = 1
+/**
+  @Summary
+    Configures the GPIO pin, RD8, as an output.
+
+  @Description
+    Configures the GPIO pin, RD8, as an output.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RD8 as an output
+    IO_RD8_SetDigitalOutput();
+    </code>
+
+*/
+#define IO_RD8_SetDigitalOutput() _TRISD8 = 0
 /**
   @Summary
     Sets the GPIO pin, RE1, high using LATE1.

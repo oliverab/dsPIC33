@@ -96,7 +96,13 @@ int main(void)
  
     while (1)
     {
-        // Add your application code
+        unsigned long dacdata;
+        
+        dacdata =0x00300000|0x8000;// Add your application code
+        S1NCS_SetLow();
+        SPI1_Exchange32bit( dacdata );
+        S1NCS_SetHigh();
+                
     }
     return 1; 
 }
