@@ -110,12 +110,12 @@
 #pragma config S1NOBTSWP = OFF    //BOOTSWP Instruction Enable/Disable bit->BOOTSWP instruction is disabled
 
 // FS1OSCSEL
-#pragma config S1FNOSC = FRCDIVN    //Oscillator Source Selection->Internal Fast RC (FRC) Oscillator with postscaler
+#pragma config S1FNOSC = FRC    //Oscillator Source Selection->Internal Fast RC (FRC) Oscillator
 #pragma config S1IESO = ON    //Two-speed Oscillator Start-up Enable bit->Start up device with FRC, then switch to user-selected oscillator source
 
 // FS1OSC
 #pragma config S1OSCIOFNC = OFF    //Slave OSC2 Pin Function bit->OSC2 is clock output
-#pragma config S1FCKSM = CSDCMD    //Clock Switching Mode bits->Both Clock switching and Fail-safe Clock Monitor are disabled
+#pragma config S1FCKSM = CSECMD    //Clock Switching Mode bits->Clock switching is enabled,Fail-safe Clock Monitor is disabled
 #pragma config S1PLLKEN = S1PLLKEN_ON    //S1PLLKEN->S1PLLKEN_ON
 
 // FS1POR
