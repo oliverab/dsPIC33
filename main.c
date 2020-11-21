@@ -46,8 +46,9 @@
   Section: Included Files
 */
 #include "mcc_generated_files/mcc.h"
+#define FCY _XTAL_FREQ/2
+#include <libpic30.h>
  
-#define DATA_UNDER_TEST 0xAAAA
 
 /*
                          Main application
@@ -61,47 +62,12 @@ int main(void)
     SLAVE1_Program();
     SLAVE1_Start();
  
-    ProtocolA_DATA dataSend;
-    ProtocolB_DATA dataReceive;
- 
-    dataSend.ProtocolA[0] = DATA_UNDER_TEST;
-    dataReceive.ProtocolB[0] = 0;         //Initializing to known value.
- 
-    //Mailbox write
-    SLAVE1_ProtocolAWrite((ProtocolA_DATA*)&dataSend);
- 
-    //Issue interrupt to slave
-    SLAVE1_InterruptRequestGenerate();
-    while(!SLAVE1_IsInterruptRequestAcknowledged());
-    SLAVE1_InterruptRequestComplete();
-    while(SLAVE1_IsInterruptRequestAcknowledged());
- 
-    //Wait for interrupt from slave
-    while(!SLAVE1_IsInterruptRequested());
-    SLAVE1_InterruptRequestAcknowledge();
-    while(SLAVE1_IsInterruptRequested());
-    SLAVE1_InterruptRequestAcknowledgeComplete();   
- 
-    //Mailbox read
-    SLAVE1_ProtocolBRead((ProtocolB_DATA*)&dataReceive);
- 
-    //Glow LED on data match
-    if(dataReceive.ProtocolB[0] == DATA_UNDER_TEST)
-    {
-        LED_MASTER_SetHigh();
-    }
-    else
-    {
-        LED_MASTER_SetLow();
-    }
- 
     while (1)
     {
-        // Add your application code
-        if (UART1_IsRxReady()) 
-        {
-            UART1_Write(UART1_Read());
-        }
+        LED_MASTER_SetHigh();
+        __delay_ms(500);
+        LED_MASTER_SetLow();
+        __delay_ms(500);
     }
     return 1; 
 }

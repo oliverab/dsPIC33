@@ -46,8 +46,8 @@
   Section: Included Files
 */
 #include "mcc_generated_files/mcc.h"
-
-#define DATA_UNDER_TEST 0xAAAA
+#define FCY _XTAL_FREQ/2
+#include <libpic30.h>
 
 /*
                          Main application
@@ -57,46 +57,12 @@ int main(void)
     // initialize the device
     SYSTEM_Initialize();
 
-    ProtocolA_DATA dataReceive;
-    ProtocolB_DATA dataSend;
- 
-    dataReceive.ProtocolA[0] = 0;                 //Initializing to known value.
-    dataSend.ProtocolB[0] = 0;                      //Initializing to known value.
- 
-    //Wait for interrupt from master    
-    while(!MASTER_IsInterruptRequested());
-    MASTER_InterruptRequestAcknowledge();
-    while(MASTER_IsInterruptRequested());
-    MASTER_InterruptRequestAcknowledgeComplete();
- 
-    //Mailbox read    
-    MASTER_ProtocolARead((ProtocolA_DATA*)&dataReceive);
- 
-    //Copy the received data for retransmission
-    dataSend.ProtocolB[0] = dataReceive.ProtocolA[0];
- 
-    //Mailbox write 
-    MASTER_ProtocolBWrite((ProtocolB_DATA*)&dataSend);
- 
-    //Issue interrupt to master
-    MASTER_InterruptRequestGenerate();
-    while(!MASTER_IsInterruptRequestAcknowledged());
-    MASTER_InterruptRequestComplete();
-    while(MASTER_IsInterruptRequestAcknowledged());
- 
-    //Glow LED on data match
-    if(dataReceive.ProtocolA[0] == DATA_UNDER_TEST)
-    {
-        LED_SLAVE_SetHigh();
-    }
-    else
-    {
-        LED_SLAVE_SetLow();
-    }
- 
     while (1)
     {
-        // Add your application code
+        LED_SLAVE_SetHigh();
+        __delay_ms(500);
+        LED_SLAVE_SetLow();
+        __delay_ms(500);
     }
     return 1; 
 }
