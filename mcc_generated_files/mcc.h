@@ -54,10 +54,10 @@
 #include <stdbool.h>
 #include "interrupt_manager.h"
 #include "traps.h"
+#include "reset.h"
 #include "slave_typedef.h"
 #include "slave1.h"
 #include "uart1.h"
-#include "reset.h"
 #include "watchdog.h"
 
 #ifndef _XTAL_FREQ
